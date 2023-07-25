@@ -4,7 +4,10 @@ import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import { api } from "@/services/api";
 
-const inter = Inter({ subsets: ["latin"] });
+// CHECKPOINT
+// TODO: : Start build layout
+// TODO: : Add responsiviness
+// TODO: : Fetch API
 
 export default function Home() {
   async function getContinents() {
