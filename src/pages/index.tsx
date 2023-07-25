@@ -11,7 +11,9 @@ import { api } from "@/services/api";
 
 export default function Home() {
   async function getContinents() {
-    const { data } = await api.get("continents");
+    const { data } = await api.get("continents/america_do_sul", {
+      // params: { sortedAttr: true },
+    });
 
     console.log("data", data);
   }

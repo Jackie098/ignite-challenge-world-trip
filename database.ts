@@ -2,6 +2,7 @@ export const fakeDatabase = {
   continents: [
     {
       continent_name: "Europa",
+      alias: "europa",
       decoy: "O continente mais antigo",
       description:
         "A Europa é, por convenção, um dos seis continentes do mundo. Compreendendo a península ocidental da Eurásia, a Europa geralmente divide-se da Ásia a leste pela divisória de águas dos montes Urais, o rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste",
@@ -52,6 +53,7 @@ export const fakeDatabase = {
     },
     {
       continent_name: "Asia",
+      alias: "asia",
       decoy: "O continente do lado de lá",
       description:
         "A Ásia é o maior dos continentes, tanto em área como em população. Abrange um terço das partes sólidas da superfície da Terra e é responsável por abrigar quase três quintos da população mundial.",
@@ -102,6 +104,7 @@ export const fakeDatabase = {
     },
     {
       continent_name: "Africa",
+      alias: "africa",
       decoy: "O continente mais quente",
       description:
         "A África é o terceiro continente mais extenso com cerca de 30 milhões de quilômetros quadrados, cobrindo 20,3% da área total da terra firme do planeta. É o segundo continente mais populoso da Terra com cerca de um bilhão de pessoas, representando cerca de um sétimo da população mundial, e 54 países independentes.",
@@ -143,6 +146,7 @@ export const fakeDatabase = {
     },
     {
       continent_name: "Oceania",
+      alias: "oceania",
       decoy: "O continente mais escondido",
       description:
         "Oceania ou Oceânia é uma região geográfica composta por vários grupos de ilhas do oceano Pacífico. O termo Oceania foi criado em 1831 pelo explorador francês Dumont d'Urville.",
@@ -177,7 +181,8 @@ export const fakeDatabase = {
     },
     {
       continent_name: "América do Sul",
-      decoy: "O continente mais antigo",
+      alias: "america_do_sul",
+      decoy: "O continente explorado",
       description:
         "A América do Sul é um continente que compreende a porção meridional da América. Também é considerada um subcontinente do continente americano. A sua extensão é de 17 819 100 km², abrangendo 12% da superfície terrestre e 6% da população mundial.",
       presentation_banner: "",
@@ -211,7 +216,8 @@ export const fakeDatabase = {
     },
     {
       continent_name: "América do Norte",
-      decoy: "O continente mais antigo",
+      alias: "america_do_norte",
+      decoy: "I want you",
       description:
         "A Europa é, por convenção, um dos seis continentes do mundo. Compreendendo a península ocidental da Eurásia, a Europa geralmente divide-se da Ásia a leste pela divisória de águas dos montes Urais, o rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste",
       presentation_banner: "",
