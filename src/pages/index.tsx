@@ -10,15 +10,15 @@ import { api } from "@/services/api";
 // TODO: : Fetch API
 
 export default function Home() {
-  async function getContinents() {
-    const { data } = await api.get("continents/america_do_sul", {
-      // params: { sortedAttr: true },
-    });
+  // async function getContinents() {
+  //   const { data } = await api.get("continents/america_do_sul", {
+  //     // params: { sortedAttr: true },
+  //   });
 
-    console.log("data", data);
-  }
+  //   console.log("data", data);
+  // }
 
-  getContinents();
+  // getContinents();
 
-  return <>OI</>;
+  return;
 }
