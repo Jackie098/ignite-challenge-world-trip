@@ -1,0 +1,31 @@
+$hightlight: #FFBA08;
+$darkInfo: #999;
+
+.swiper-button-prev {
+  color: #ffba08 !important;
+  padding-left: 20px;
+
+}
+
+.swiper-button-next {
+  color: #ffba08 !important;
+  padding-right: 20px;
+}
+
+.swiper-pagination {
+  padding-bottom: 24px;
+}
+
+.swiper-pagination-bullet {
+  background: $darkInfo !important;
+  width: 16px !important;
+  height: 16px !important;
+
+}
+
+.swiper-pagination-bullet::after {
+}
+
+.swiper-pagination-bullet-active {
+  background: $hightlight !important;
+}

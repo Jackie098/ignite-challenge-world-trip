@@ -22,6 +22,6 @@ export const theme = extendTheme({
     },
     white: { 900: "#FFF" },
     lightText: { 900: "#F5F8FA" },
-    lightInfo: { 9000: "#DADADA" },
+    lightInfo: { 900: "#DADADA" },
   },
 });
