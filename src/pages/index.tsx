@@ -1,4 +1,12 @@
-import { Box, Divider, Flex, HStack, Text, VStack } from "@chakra-ui/react";
+import {
+  Box,
+  Divider,
+  Flex,
+  HStack,
+  Spinner,
+  Text,
+  VStack,
+} from "@chakra-ui/react";
 import Image from "next/image";
 
 // Import Swiper React components
@@ -21,22 +29,59 @@ import { api } from "@/services/api";
 import { useState } from "react";
 import Link from "next/link";
 import { color } from "framer-motion";
+import { GetStaticProps } from "next";
+import { useSortedContinents } from "@/services/hooks/useContinents";
 
 // CHECKPOINT
 // TODO: : Start build layout
 // TODO: : Add responsiviness
 // TODO: : Fetch API
 
-export default function Home() {
-  const [continents, setContinents] = useState([]);
-  async function getContinents() {
-    const {
-      data: { continents },
-    } = await api.get("continents", {
-      // params: { sortedAttr: true },
-    });
+// type City = {
+//   city_name: string;
+//   country: string;
+//   iso_code: string;
+//   city_image: string;
+// };
 
-    return continents;
+type Continent = {
+  continent_name: string;
+  alias: string;
+  decoy: string;
+  presentation_banner: string;
+  // description: string;
+  // page_banner: string;
+  // amount_countries: string;
+  // amount_languages: string;
+  // amount_cities_100: string;
+  // examples_cities_100: City[];
+};
+
+// type PreviewContinent = Pick<
+//   Continent,
+//   "continent_name" | "alias" | "decoy" | "presentation_banner"
+// >;
+
+// interface HomeProps {
+//   continents: Continent[];
+// }
+
+export default function Home() {
+  const { data: continents, isLoading, error, status } = useSortedContinents();
+
+  console.log("status", status);
+  console.log("continents", continents);
+
+  if (status === "error") {
+    return <Text>Error in request</Text>;
+  }
+
+  if (isLoading) {
+    return (
+      <Flex justify={"center"} align={"center"} h={"100vh"}>
+        <Spinner color="hightlight.800" size={"lg"} />
+      </Flex>
+    );
   }
 
   return (
@@ -125,7 +170,7 @@ export default function Home() {
           </Text>
         </Box>
 
-        <Flex w={"80vw"} h={"450px"} mt={"52px"}>
+        <Flex w={"80vw"} h={"450px"} mt={"52px"} mb={"48px"}>
           <Swiper
             modules={[Navigation, Pagination]}
             navigation={{}}
@@ -138,78 +183,31 @@ export default function Home() {
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
           >
-            {/* {continents?.map((continent) => (
+            {continents.map((continent) => (
               <SwiperSlide key={continent.alias}>
-                {continent.continent_name}
+                <Link href={continent.alias}>
+                  <VStack
+                    h={"100%"}
+                    justify={"center"}
+                    bgImage={"url('background_at_night.png')"}
+                    bgRepeat={"no-repeat"}
+                    bgSize={"cover"}
+                    bgPosition={"center"}
+                  >
+                    <Text
+                      fontWeight={"bold"}
+                      fontSize={48}
+                      color={"lightText.900"}
+                    >
+                      {continent.continent_name}
+                    </Text>
+                    <Text fontSize={24} color={"lightText.900"}>
+                      {continent.decoy}
+                    </Text>
+                  </VStack>
+                </Link>
               </SwiperSlide>
-            ))} */}
-            <SwiperSlide>
-              <Link href={"google.com"}>
-                <VStack
-                  h={"100%"}
-                  justify={"center"}
-                  bgImage={"url('background_at_night.png')"}
-                  bgRepeat={"no-repeat"}
-                  bgSize={"cover"}
-                  bgPosition={"center"}
-                >
-                  <Text
-                    fontWeight={"bold"}
-                    fontSize={48}
-                    color={"lightText.900"}
-                  >
-                    Europa
-                  </Text>
-                  <Text fontSize={24} color={"lightText.900"}>
-                    O continente mais antigo
-                  </Text>
-                </VStack>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link href={"google.com"}>
-                <VStack
-                  h={"100%"}
-                  justify={"center"}
-                  bgImage={"url('background_at_night.png')"}
-                  bgRepeat={"no-repeat"}
-                  bgSize={"cover"}
-                >
-                  <Text
-                    fontWeight={"bold"}
-                    fontSize={48}
-                    color={"lightText.900"}
-                  >
-                    Europa
-                  </Text>
-                  <Text fontSize={24} color={"lightText.900"}>
-                    O continente mais antigo
-                  </Text>
-                </VStack>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Link href={"google.com"}>
-                <VStack
-                  h={"100%"}
-                  justify={"center"}
-                  bgImage={"url('background_at_night.png')"}
-                  bgRepeat={"no-repeat"}
-                  bgSize={"cover"}
-                >
-                  <Text
-                    fontWeight={"bold"}
-                    fontSize={48}
-                    color={"lightText.900"}
-                  >
-                    Europa
-                  </Text>
-                  <Text fontSize={24} color={"lightText.900"}>
-                    O continente mais antigo
-                  </Text>
-                </VStack>
-              </Link>
-            </SwiperSlide>
+            ))}
           </Swiper>
         </Flex>
       </VStack>

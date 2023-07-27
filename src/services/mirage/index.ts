@@ -21,6 +21,11 @@ type Continent = {
   examples_cities_100: City[];
 };
 
+type SortedContinent = Pick<
+  Continent,
+  "continent_name" | "alias" | "decoy" | "presentation_banner"
+>;
+
 export function makeServer() {
   const server = createServer({
     models: {
@@ -28,12 +33,12 @@ export function makeServer() {
     },
 
     seeds(server) {
-      server.create("continent", fakeDatabase.continents[0]);
-      server.create("continent", fakeDatabase.continents[1]);
-      server.create("continent", fakeDatabase.continents[2]);
-      server.create("continent", fakeDatabase.continents[3]);
-      server.create("continent", fakeDatabase.continents[4]);
-      server.create("continent", fakeDatabase.continents[5]);
+      server.create("continent", fakeDatabase.continents[0] as any);
+      server.create("continent", fakeDatabase.continents[1] as any);
+      server.create("continent", fakeDatabase.continents[2] as any);
+      server.create("continent", fakeDatabase.continents[3] as any);
+      server.create("continent", fakeDatabase.continents[4] as any);
+      server.create("continent", fakeDatabase.continents[5] as any);
     },
 
     routes() {
@@ -46,12 +51,20 @@ export function makeServer() {
         if (request.queryParams.sortedAttr) {
           const sortedAttrContinents = allContinents.models.map(
             (continent) => ({
-              continentName: continent.attrs.continent_name,
+              //@ts-ignore
+              continent_name: continent.attrs.continent_name,
+              //@ts-ignore
               decoy: continent.attrs.decoy,
+              //@ts-ignore
+              alias: continent.attrs.alias,
+              //@ts-ignore
+              presentation_banner: continent.attrs.presentation_banner,
             })
           );
 
-          return sortedAttrContinents;
+          console.log("sortedAttrContinents", sortedAttrContinents);
+
+          return new Response(200, {}, sortedAttrContinents);
         }
 
         return allContinents;
@@ -62,6 +75,7 @@ export function makeServer() {
         const name = request.params.name.toLowerCase();
 
         const continentExists = schema.findBy("continent", {
+          //@ts-ignore
           alias: name,
         });
 
