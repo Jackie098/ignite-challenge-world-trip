@@ -50,16 +50,17 @@ export function makeServer() {
 
         if (request.queryParams.sortedAttr) {
           const sortedAttrContinents = allContinents.models.map(
-            (continent) => ({
-              //@ts-ignore
-              continent_name: continent.attrs.continent_name,
-              //@ts-ignore
-              decoy: continent.attrs.decoy,
-              //@ts-ignore
-              alias: continent.attrs.alias,
-              //@ts-ignore
-              presentation_banner: continent.attrs.presentation_banner,
-            })
+            (continent) =>
+              ({
+                //@ts-ignore
+                continent_name: continent.attrs.continent_name,
+                //@ts-ignore
+                decoy: continent.attrs.decoy,
+                //@ts-ignore
+                alias: continent.attrs.alias,
+                //@ts-ignore
+                presentation_banner: continent.attrs.presentation_banner,
+              } as SortedContinent)
           );
 
           console.log("sortedAttrContinents", sortedAttrContinents);
