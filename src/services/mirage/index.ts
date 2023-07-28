@@ -67,7 +67,7 @@ export function makeServer() {
           return new Response(200, {}, sortedAttrContinents);
         }
 
-        return allContinents;
+        return new Response(200, {}, allContinents);
       });
 
       this.get("/continents/:name", (schema, request) => {

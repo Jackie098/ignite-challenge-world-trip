@@ -12,6 +12,7 @@ export const theme = extendTheme({
     },
     black: {
       900: "#000",
+      50: "#00000066",
     },
     darkText: {
       500: "#47585B",

@@ -1,6 +1,10 @@
 $hightlight: #FFBA08;
 $darkInfo: #999;
 
+.swiper-slide {
+  background: #000 !important;
+}
+
 .swiper-button-prev {
   color: #ffba08 !important;
   padding-left: 20px;
@@ -20,10 +24,6 @@ $darkInfo: #999;
   background: $darkInfo !important;
   width: 16px !important;
   height: 16px !important;
-
-}
-
-.swiper-pagination-bullet::after {
 }
 
 .swiper-pagination-bullet-active {

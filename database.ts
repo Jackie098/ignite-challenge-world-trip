@@ -108,8 +108,10 @@ export const fakeDatabase = {
       decoy: "O continente mais quente",
       description:
         "A África é o terceiro continente mais extenso com cerca de 30 milhões de quilômetros quadrados, cobrindo 20,3% da área total da terra firme do planeta. É o segundo continente mais populoso da Terra com cerca de um bilhão de pessoas, representando cerca de um sétimo da população mundial, e 54 países independentes.",
-      presentation_banner: "",
-      page_banner: "",
+      presentation_banner:
+        "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      page_banner:
+        "https://images.unsplash.com/photo-1511185307590-3c29c11275ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80",
       amount_countries: "54",
       amount_languages: "2000",
       amount_cities_100: "12",
@@ -150,8 +152,10 @@ export const fakeDatabase = {
       decoy: "O continente mais escondido",
       description:
         "Oceania ou Oceânia é uma região geográfica composta por vários grupos de ilhas do oceano Pacífico. O termo Oceania foi criado em 1831 pelo explorador francês Dumont d'Urville.",
-      presentation_banner: "",
-      page_banner: "",
+      presentation_banner:
+        "https://plus.unsplash.com/premium_photo-1661963939186-973fd7a5c452?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      page_banner:
+        "https://images.unsplash.com/photo-1588001400947-6385aef4ab0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80",
       amount_countries: "14",
       amount_languages: "1323",
       amount_cities_100: "2",
@@ -185,8 +189,10 @@ export const fakeDatabase = {
       decoy: "O continente explorado",
       description:
         "A América do Sul é um continente que compreende a porção meridional da América. Também é considerada um subcontinente do continente americano. A sua extensão é de 17 819 100 km², abrangendo 12% da superfície terrestre e 6% da população mundial.",
-      presentation_banner: "",
-      page_banner: "",
+      presentation_banner:
+        "https://images.unsplash.com/photo-1619546952812-520e98064a52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
+      page_banner:
+        "https://images.unsplash.com/photo-1567597243073-2d274aabecec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80",
       amount_countries: "12",
       amount_languages: "456",
       amount_cities_100: "15",
@@ -220,8 +226,10 @@ export const fakeDatabase = {
       decoy: "I want you",
       description:
         "A Europa é, por convenção, um dos seis continentes do mundo. Compreendendo a península ocidental da Eurásia, a Europa geralmente divide-se da Ásia a leste pela divisória de águas dos montes Urais, o rio Ural, o mar Cáspio, o Cáucaso, e o mar Negro a sudeste",
-      presentation_banner: "",
-      page_banner: "",
+      presentation_banner:
+        "https://images.unsplash.com/photo-1584463699388-770eedddf672?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+      page_banner:
+        "https://images.unsplash.com/photo-1582893002994-c0228d8b414a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=627&q=80",
       amount_countries: "3",
       amount_languages: "256",
       amount_cities_100: "3",

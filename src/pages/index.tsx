@@ -10,14 +10,16 @@ import {
 import Image from "next/image";
 
 // Import Swiper React components
-import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
 import "swiper/scss";
-import "swiper/scss/pagination";
 import "swiper/scss/navigation";
+import "swiper/scss/pagination";
 
+import { useSortedContinents } from "@/services/hooks/useContinents";
+import Link from "next/link";
 import AirplaneIcon from "public/airplane.svg";
 import ClassicalBuildingIcon from "public/classical_building.svg";
 import CocktailIcon from "public/cocktail.svg";
@@ -25,12 +27,6 @@ import EarthSvgIcon from "public/earth.svg";
 import Logo from "public/logo.svg";
 import ModernBuildingIcon from "public/modern_building.svg";
 import SurfIcon from "public/surf.svg";
-import { api } from "@/services/api";
-import { useState } from "react";
-import Link from "next/link";
-import { color } from "framer-motion";
-import { GetStaticProps } from "next";
-import { useSortedContinents } from "@/services/hooks/useContinents";
 
 // CHECKPOINT
 // TODO: : Start build layout
@@ -67,7 +63,7 @@ type Continent = {
 // }
 
 export default function Home() {
-  const { data: continents, isLoading, error, status } = useSortedContinents();
+  const { data: continents, status, isFetching } = useSortedContinents();
 
   console.log("status", status);
   console.log("continents", continents);
@@ -76,7 +72,7 @@ export default function Home() {
     return <Text>Error in request</Text>;
   }
 
-  if (isLoading) {
+  if (status === "loading") {
     return (
       <Flex justify={"center"} align={"center"} h={"100vh"}>
         <Spinner color="hightlight.800" size={"lg"} />
@@ -180,34 +176,52 @@ export default function Home() {
               delay: 3500,
               pauseOnMouseEnter: true,
             }}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
+            // onSlideChange={() => console.log("slide change")}
+            // onSwiper={(swiper) => console.log(swiper)}
           >
-            {continents.map((continent) => (
-              <SwiperSlide key={continent.alias}>
-                <Link href={continent.alias}>
-                  <VStack
-                    h={"100%"}
-                    justify={"center"}
-                    bgImage={"url('background_at_night.png')"}
-                    bgRepeat={"no-repeat"}
-                    bgSize={"cover"}
-                    bgPosition={"center"}
-                  >
-                    <Text
-                      fontWeight={"bold"}
-                      fontSize={48}
-                      color={"lightText.900"}
-                    >
-                      {continent.continent_name}
-                    </Text>
-                    <Text fontSize={24} color={"lightText.900"}>
-                      {continent.decoy}
-                    </Text>
-                  </VStack>
-                </Link>
-              </SwiperSlide>
-            ))}
+            {isFetching ? (
+              <Spinner color="hightlight.800" size={"lg"} />
+            ) : (
+              continents.map((continent) => (
+                <SwiperSlide key={continent.alias}>
+                  <Box h={"100%"} background={"blackAlpha.900"}>
+                    <Link href={continent.alias}>
+                      <VStack
+                        h={"100%"}
+                        justify={"center"}
+                        bgImage={`url(${continent.presentation_banner})`}
+                        bgRepeat={"no-repeat"}
+                        bgSize={"cover"}
+                        bgPosition={"center"}
+                      >
+                        <Box
+                          w={"100%"}
+                          h={"100%"}
+                          background={"black.50"}
+                        ></Box>
+                        <Box position={"absolute"} zIndex={20}>
+                          <Text
+                            fontWeight={"bold"}
+                            fontSize={48}
+                            color={"lightText.900"}
+                            align={"center"}
+                          >
+                            {continent.continent_name}
+                          </Text>
+                          <Text
+                            fontSize={24}
+                            color={"lightText.900"}
+                            align={"center"}
+                          >
+                            {continent.decoy}
+                          </Text>
+                        </Box>
+                      </VStack>
+                    </Link>
+                  </Box>
+                </SwiperSlide>
+              ))
+            )}
           </Swiper>
         </Flex>
       </VStack>

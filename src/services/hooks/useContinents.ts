@@ -20,6 +20,7 @@ export async function getContinents(sortedAttr = false): Promise<Continent[]> {
 
 export function useSortedContinents() {
   return useQuery(["sortedContinents"], () => getContinents(true), {
-    staleTime: 1000 * 5,
+    staleTime: 1000 * 20,
+    refetchInterval: false,
   });
 }
